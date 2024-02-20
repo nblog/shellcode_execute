@@ -38,4 +38,5 @@ For example, [EnumFontsA](https://learn.microsoft.com/windows/win32/api/wingdi/n
 ### Credits:
 [microsoft/win32metadata](https://github.com/microsoft/win32metadata)
 
-[ynkdir/win32metadata-json](https://github.com/ynkdir/py-win32more/raw/main/json/Windows.Win32.json.xz)
+[ynkdir/win32metadata-json](https://github.com/ynkdir/py-win32more/raw/main/win32generator/resources/metadata/Windows.Win32.json.xz)
+

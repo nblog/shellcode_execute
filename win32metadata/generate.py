@@ -4,14 +4,27 @@
 
 import os, json; from typing import List, Dict
 
+
 def win32metadata():
-    ''' https://github.com/ynkdir/py-win32more/raw/main/json/Windows.Win32.json.xz '''
+    def extract(data, target, target_dir=''):
+        import lzma
+        target = os.path.join(target_dir, os.path.splitext(target)[0])
+        open(target, "wb").write(lzma.decompress(data))
+        return os.path.join(os.getcwd(), target)
+
+    import urllib.request; HTTPGET = urllib.request.urlopen
+    resp = HTTPGET(
+        "https://github.com/ynkdir/py-win32more/raw/main/win32generator/resources/metadata/Windows.Win32.json.xz"
+    )
+    if (200 == resp.status):
+        return extract(resp.read(), os.path.basename(resp.url))
+
+    raise NotImplementedError
 
 
 
 
-
-wtf = json.load( open('win32metadata\\windows.win32.json', 'r') )
+wtf = json.load( open(win32metadata(), 'r') )
 
 
 def parse_argv(api: Dict):
